@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor - The AI Code Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4L4 12L12 20L20 12L12 4Z" stroke="white" stroke-width="2" stroke-linejoin="round" />
+                </svg>
+                <span>Cursor</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Enterprise</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Forum</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-secondary">Sign In</a>
+                <a href="#" class="btn btn-primary">Download</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container hero-container">
+                <h1 class="hero-title">The AI Code Editor</h1>
+                <p class="hero-subtitle">Built to make you extraordinarily productive, Cursor is the best way to code
+                    with AI.</p>
+                <div class="hero-cta-wrapper">
+                    <a href="#" class="btn btn-primary btn-large">Download for Windows</a>
+                    <p class="hero-note">Free to download</p>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="code-editor-window">
+                        <div class="window-header">
+                            <div class="window-controls">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="window-title">main.tsx</div>
+                        </div>
+                        <div class="window-content">
+                            <pre><code class="language-typescript"><span class="keyword">function</span> <span class="function">calculateFibonacci</span>(n: <span class="type">number</span>): <span class="type">number</span> {
+  <span class="keyword">if</span> (n <= 1) <span class="keyword">return</span> n;
+  <span class="keyword">return</span> calculateFibonacci(n - 1) + calculateFibonacci(n - 2);
+}
+
+<span class="comment">// AI: Can you optimize this using memoization?</span>
+
+<span class="keyword">const</span> <span class="function">memoizedFibonacci</span> = (n: <span class="type">number</span>, memo: Record<<span class="type">number</span>, <span class="type">number</span>> = {}): <span class="type">number</span> => {
+  <span class="keyword">if</span> (n <span class="keyword">in</span> memo) <span class="keyword">return</span> memo[n];
+  <span class="keyword">if</span> (n <= 1) <span class="keyword">return</span> n;
+  
+  memo[n] = memoizedFibonacci(n - 1, memo) + memoizedFibonacci(n - 2, memo);
+  <span class="keyword">return</span> memo[n];
+}</code></pre>
+                            <div class="ai-chat-overlay">
+                                <div class="ai-message">
+                                    <div class="ai-avatar">AI</div>
+                                    <div class="ai-text">I can help you optimize that function. Here is a memoized
+                                        version...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trusted-by-section">
+            <div class="container">
+                <p class="trusted-label">Trusted by engineers at</p>
+                <div class="logos-grid">
+                    <div class="logo-item">OpenAI</div>
+                    <div class="logo-item">Midjourney</div>
+                    <div class="logo-item">Perplexity</div>
+                    <div class="logo-item">Scale</div>
+                    <div class="logo-item">Replicate</div>
+                    <div class="logo-item">Instacart</div>
+                    <!-- Using text for now, in a real scenario would use SVGs -->
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-block-section">
+            <div class="container">
+                <!-- Feature 1 -->
+                <div class="feature-block">
+                    <div class="feature-text">
+                        <h2 class="section-title">Chat with your codebase</h2>
+                        <p class="section-description">Cursor understands your entire codebase. Ask questions about your
+                            project, search for definitions, and generate code with full context.</p>
+                        <ul class="feature-list">
+                            <li>Reference files and docs with @ symbols</li>
+                            <li>Instant answers from your entire repo</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <div class="code-preview">
+                            <div class="chat-bubble user">@src/utils/helpers.ts How does the formatting function work?
+                            </div>
+                            <div class="chat-bubble ai">The formatting function in helpers.ts uses a recursive approach
+                                to...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-block reverse">
+                    <div class="feature-text">
+                        <h2 class="section-title">Tab Autocomplete</h2>
+                        <p class="section-description">Cursor predicts your next edit. It's smart enough to suggest
+                            changes across multiple lines, saving you time on boilerplate and repetitive tasks.</p>
+                    </div>
+                    <div class="feature-image">
+                        <div class="code-preview">
+                            <pre><code class="language-typescript"><span class="keyword">const</span> UserList = () => {
+  <span class="comment">// Ghost text below</span>
+  <span class="comment" style="opacity: 0.5">const { data, isLoading } = useQuery('users', fetchUsers);</span>
+  <span class="comment" style="opacity: 0.5">if (isLoading) return <Spinner />;</span>
+  
+  return (
+    &lt;div&gt;
+      {data.map(user => (&lt;UserCard key={user.id} user={user} /&gt;))}
+    &lt;/div&gt;
+  )
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-block">
+                    <div class="feature-text">
+                        <h2 class="section-title">Privacy Mode</h2>
+                        <p class="section-description">With Privacy Mode, your code is never stored on our servers. You
+                            can choose to keep your code interactions completely private.</p>
+                    </div>
+                    <div class="feature-image">
+                        <div class="privacy-shield">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white"
+                                stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                            <span>SOC 2 Compliant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-cards-section">
+            <div class="container">
+                <div class="section-header-center">
+                    <h2 class="section-title">More superpowers</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="feature-card">
+                        <h3 class="card-title">Docs Integration</h3>
+                        <p class="card-desc">Index third-party documentation to get answers based on the latest
+                            libraries.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="card-title">Auto-Debug</h3>
+                        <p class="card-desc">Fix bugs automatically by looking at your terminal errors and stack traces.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="card-title">Lint Fixes</h3>
+                        <p class="card-desc">Resolve lint errors with a single click without leaving your keyboard.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="card-title">Codebase Indexing</h3>
+                        <p class="card-desc">Cursor computes embeddings for your codebase to understand semantic
+                            relationships.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header-center">
+                    <h2 class="section-title">Loved by developers</h2>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">"Cursor has completely changed how I write code. It's like having a
+                            senior engineer pair programming with you 24/7."</p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Sarah Chen</div>
+                            <div class="author-role">Software Engineer at TechCorp</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">"The codebase indexing is magic. I can ask high-level questions
+                            about my architecture and get accurate answers instantly."</p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Alex Rivera</div>
+                            <div class="author-role">Frontend Lead</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">"I was skeptical at first, but Tab Autocomplete is genuinely
+                            predictive. It feels like it reads my mind."</p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Jordan Lee</div>
+                            <div class="author-role">Full Stack Developer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="use-cases-section">
+            <div class="container">
+                <div class="section-header-center">
+                    <h2 class="section-title">Built for any workflow</h2>
+                </div>
+                <div class="use-cases-grid">
+                    <div class="use-case-card">
+                        <div class="use-case-content">
+                            <h3>Refactoring</h3>
+                            <p>Rewrite entire modules with one prompt.</p>
+                        </div>
+                    </div>
+                    <div class="use-case-card">
+                        <div class="use-case-content">
+                            <h3>Debugging</h3>
+                            <p>Find and fix root causes in seconds.</p>
+                        </div>
+                    </div>
+                    <div class="use-case-card">
+                        <div class="use-case-content">
+                            <h3>Understanding</h3>
+                            <p>Onboard to new codebases faster than ever.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="changelog-section">
+            <div class="container">
+                <div class="changelog-header">
+                    <h2 class="section-title">Changelog</h2>
+                    <a href="#" class="view-all-link">View all updates -></a>
+                </div>
+                <div class="changelog-list">
+                    <div class="changelog-item">
+                        <div class="changelog-date">Feb 1, 2026</div>
+                        <div class="changelog-content">
+                            <h3>New AI Model Integration</h3>
+                            <p>We've integrated the latest reasoning models for better code generation.</p>
+                        </div>
+                    </div>
+                    <div class="changelog-item">
+                        <div class="changelog-date">Jan 15, 2026</div>
+                        <div class="changelog-content">
+                            <h3>Performance Improvements</h3>
+                            <p>Reduced indexing time by 40% for large repositories.</p>
+                        </div>
+                    </div>
+                    <div class="changelog-item">
+                        <div class="changelog-date">Jan 2, 2026</div>
+                        <div class="changelog-content">
+                            <h3>Copilot++ Updates</h3>
+                            <p>Smarter multi-line completions and improved latency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="container">
+                <div class="team-content">
+                    <h2 class="section-title">Built by a small team</h2>
+                    <p class="section-description">We're a team of engineers and researchers building the future of
+                        coding.</p>
+                    <a href="#" class="btn btn-secondary">Join us</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta-section">
+            <div class="container">
+                <h2 class="cta-title">Build software faster.</h2>
+                <a href="#" class="btn btn-primary btn-large">Download for Windows</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="logo-small">Cursor</div>
+                <div class="social-links">
+                    <a href="#">Twitter</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Changelog</a></li>
+                    <li><a href="#">Docs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Forum</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2026 Cursor</p>
+        </div>
+    </footer>
+</body>
+
+</html>
